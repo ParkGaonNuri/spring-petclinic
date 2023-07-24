@@ -39,7 +39,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: java-app
-          path: '${{ github.workspace }}/build/lib/*.jar'
+          path: '${{ github.workspace }}/build/libs/*.jar'
 
   deploy:
     runs-on: ubuntu-latest
@@ -53,7 +53,7 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: java-app
-          path: '${{ github.workspace }}/build/lib/*.jar'
+          path: '${{ github.workspace }}/build/libs/*.jar'
 
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
@@ -63,4 +63,4 @@ jobs:
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_C4A9515E2E2D4741B1325D1183CA3171 }}
 #           package: '*.jar'
-          package: '${{ github.workspace }}/build/lib/*.jar'
+          package: '${{ github.workspace }}/build/libs/*.jar'
