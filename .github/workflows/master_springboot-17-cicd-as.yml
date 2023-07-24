@@ -69,4 +69,4 @@ jobs:
         uses: azure/webapps-deploy@v2
         with:
           app-name: 'nuri-app'
-          package: '${{ github.workspace }}/build/libs/*.jar'
+          package: '*.jar'
