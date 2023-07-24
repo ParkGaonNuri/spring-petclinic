@@ -39,7 +39,14 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: java-app
-          path: '${{ github.workspace }}/build/libs/'
+          path: '${{ github.workspace }}/build/libs'
+      
+      # 배포할 파일의 경로를 확인
+      - name: Check build artifacts
+        run: |
+         cd '${{ github.workspace }}/build/libs'
+         pwd
+         ls -lR
 
   deploy:
     runs-on: ubuntu-latest
