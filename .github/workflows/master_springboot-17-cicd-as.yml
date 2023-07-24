@@ -59,8 +59,5 @@ jobs:
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
         with:
-          app-name: 'SpringBoot-17-cicd-as'
-          slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_C4A9515E2E2D4741B1325D1183CA3171 }}
-#           package: '*.jar'
+          app-name: 'nuri-app'
           package: '${{ github.workspace }}/build/libs/*.jar'
